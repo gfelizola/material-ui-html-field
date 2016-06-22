@@ -11,6 +11,8 @@ import React from 'react';
 
 import HtmlField from 'material-ui-html-field';
 
+import 'simditor/styles/simditor.css';
+
 export default class Main extends React.Component {
   constructor(props) {
     super(props);

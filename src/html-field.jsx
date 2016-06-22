@@ -9,7 +9,6 @@
 import React from 'react';
 
 import Simditor from 'simditor';
-import 'simditor/styles/simditor.css';
 import DefaultRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import Transitions from 'material-ui/lib/styles/transitions';

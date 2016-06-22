@@ -13,6 +13,7 @@ npm i material-ui-html-field
 
 import React from 'react';
 import HtmlField from 'material-ui-html-field';
+import 'simditor/styles/simditor.css';
 
 export default class MyAwesomeReactComponent extends React.Component  {
   constructor(props) {
