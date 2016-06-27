@@ -9,18 +9,8 @@
 import React from 'react';
 
 import Simditor from 'simditor';
-import DefaultRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import Transitions from 'material-ui/lib/styles/transitions';
-import ContextPure from 'material-ui/lib/mixins/context-pure';
-import StylePropable from 'material-ui/lib/mixins/style-propable';
 
 const HtmlField = React.createClass({
-
-  mixins: [
-    ContextPure,
-    StylePropable,
-  ],
 
   contextTypes: {
     muiTheme: React.PropTypes.object,
@@ -59,15 +49,9 @@ const HtmlField = React.createClass({
     }
   },
 
-  getChildContext() {
-    return {
-      muiTheme: this.state.muiTheme,
-    };
-  },
-
   getInitialState() {
     return {
-      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme),
+      muiTheme: this.context.muiTheme,
     };
   },
 
@@ -112,7 +96,6 @@ const HtmlField = React.createClass({
       floatingLabel: {
         position: 'relative',
         color: floatingLabelColor,
-        transition: Transitions.easeOut(),
         marginBottom: 5,
         lineHeight: '22px',
         fontSize: '12px',
@@ -129,10 +112,9 @@ const HtmlField = React.createClass({
         lineHeight: '12px',
         color: errorColor,
         marginTop: 10,
-        transition: Transitions.easeOut(),
       }
     };
-    styles.error = this.mergeAndPrefix(styles.error, props.errorStyle);
+    styles.error = Object.assign(styles.error, props.errorStyle);
     return styles;
   },
 
@@ -149,18 +131,18 @@ const HtmlField = React.createClass({
 
     let floatingLabelTextElement = floatingLabelText ? (
       <label
-        style={this.prepareStyles(styles.floatingLabel, floatingLabelStyle)}
+        style={Object.assign(styles.floatingLabel, floatingLabelStyle)}
         onTouchTap={this.focus}>
         {floatingLabelText}
       </label>
     ) : null;
 
     let errorTextElement = errorText ? (
-      <div style={this.prepareStyles(styles.error)}>{errorText}</div>
+      <div style={Object.assign(styles.error)}>{errorText}</div>
     ) : null;
 
     return (
-      <div className={className} style={this.prepareStyles(styles.root, this.props.style)}>
+      <div className={className} style={Object.assign(styles.root, this.props.style)}>
         {floatingLabelTextElement}
         <textarea ref="editor"/>
         {errorTextElement}
