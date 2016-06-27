@@ -9,7 +9,8 @@
 import React from 'react';
 
 import Simditor from 'simditor';
-// import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import DefaultRawTheme from 'material-ui/lib/styles/raw-themes/light-raw-theme';
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import Transitions from 'material-ui/lib/styles/transitions';
 import ContextPure from 'material-ui/lib/mixins/context-pure';
 import StylePropable from 'material-ui/lib/mixins/style-propable';
@@ -58,9 +59,15 @@ const HtmlField = React.createClass({
     }
   },
 
+  getChildContext() {
+    return {
+      muiTheme: this.state.muiTheme,
+    };
+  },
+
   getInitialState() {
     return {
-      muiTheme: this.context.muiTheme,
+      muiTheme: this.context.muiTheme ? this.context.muiTheme : ThemeManager.getMuiTheme(DefaultRawTheme),
     };
   },
 
