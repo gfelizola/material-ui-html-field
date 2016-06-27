@@ -9,7 +9,7 @@
 import React from 'react';
 
 import Simditor from 'simditor';
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
+// import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import Transitions from 'material-ui/lib/styles/transitions';
 import ContextPure from 'material-ui/lib/mixins/context-pure';
 import StylePropable from 'material-ui/lib/mixins/style-propable';
