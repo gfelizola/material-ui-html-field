@@ -39,7 +39,7 @@
     "rimraf": "^2.5.0"
   },
   "peerDependencies": {
-    "react": "^0.14.3"
+    "react": "^0.15.2"
   },
   "dependencies": {
     "simditor": "^2.3.6"
